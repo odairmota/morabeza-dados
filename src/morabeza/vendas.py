@@ -34,7 +34,7 @@ class Venda:
         """Valor da venda em escudos."""
         # TODO 1: devolve a quantidade vezes o preço unitário (usa self.).
         return self.quantidade * self.preco_unitario
-        raise NotImplementedError("Venda.total ainda não está feita")
+        
 
 
 def criar_venda(linha: dict[str, str]) -> Venda:
@@ -67,7 +67,7 @@ def criar_venda(linha: dict[str, str]) -> Venda:
         quantidade=quantidade,
         preco_unitario=preco_unitario,
     )
-    raise NotImplementedError("criar_venda ainda não está feita")
+  
 
 
 def ler_vendas(caminho: str) -> Iterator[Venda]:
@@ -97,14 +97,14 @@ def contar_invalidas(caminho: str) -> int:
             except VendaInvalida:
                 invalidas += 1
     return invalidas
-    raise NotImplementedError("contar_invalidas ainda não está feita")
+ 
 
 
 def vendas_acima(vendas: Iterable[Venda], limite: int) -> list[Venda]:
     """Vendas com total maior do que o limite, numa compreensão de lista."""
     # TODO 7: uma só linha com uma compreensão de lista: [v for v in ... if ...]
     return [v for v in vendas if v.total > limite]
-    raise NotImplementedError("vendas_acima ainda não está feita")
+   
 
 
 def total_por(vendas: Iterable[Venda], chave: Callable[[Venda], str]) -> dict[str, int]:
@@ -117,7 +117,7 @@ def total_por(vendas: Iterable[Venda], chave: Callable[[Venda], str]) -> dict[st
         grupo = chave(v)
         resultado[grupo] = resultado.get(grupo, 0) + v.total
     return resultado
-    raise NotImplementedError("total_por ainda não está feita")
+   
 
 
 # ---------------------------------------------------------------- Extensão (opcional)
@@ -127,7 +127,7 @@ def top_n(totais: dict[str, int], n: int) -> list[tuple[str, int]]:
     # EXTENSÃO: sorted(totais.items(), key=lambda par: ..., reverse=True) e depois [:n]
     ordenados = sorted(totais.items(), key=lambda par: par[1], reverse=True)
     return ordenados[:n]
-    raise NotImplementedError("Extensão por fazer")
+    
 
 
 @contextmanager
